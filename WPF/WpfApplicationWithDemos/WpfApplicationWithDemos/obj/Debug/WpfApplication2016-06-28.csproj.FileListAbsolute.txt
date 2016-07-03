@@ -1,0 +1,24 @@
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\bin\Debug\WpfApplication2016-06-28.exe
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\bin\Debug\WpfApplication2016-06-28.pdb
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\App.g.cs
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28_MarkupCompile.cache
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28_MarkupCompile.lref
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\App.baml
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.g.resources
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016_06_28.Properties.Resources.resources
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.csproj.GenerateResource.Cache
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.exe
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.pdb
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\bin\Debug\WpfApplication2016-06-28.exe.config
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\bin\Debug\EntityFramework.dll
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\bin\Debug\EntityFramework.xml
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.csprojResolveAssemblyReference.cache
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\01_BindingToOtherWpfElement\MainWindow.g.cs
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\02_Splitter\Window1.g.cs
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\03_SimpleViewModel\Window2.g.cs
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\01_BindingToOtherWpfElement\MainWindow.baml
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\02_Splitter\Window1.baml
+C:\Users\ezeh\Documents\Visual Studio 2015\Projects\WpfApplication2016-06-28\WpfApplication2016-06-28\obj\Debug\03_SimpleViewModel\Window2.baml
+C:\projects\wpf\WpfApplicationWithDemos\WpfApplication2016-06-28\bin\Debug\WpfApplication2016-06-28.exe.config
+C:\projects\wpf\WpfApplicationWithDemos\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.exe
+C:\projects\wpf\WpfApplicationWithDemos\WpfApplication2016-06-28\obj\Debug\WpfApplication2016-06-28.pdb
