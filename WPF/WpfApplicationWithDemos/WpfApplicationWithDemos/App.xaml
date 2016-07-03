@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfApplication2016_06_28"
              xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication2016_06_28.App"
-             StartupUri="03_SimpleViewModel\Window2.xaml">
+             StartupUri="Window3.xaml">
     <Application.Resources>
 
         <System:Double x:Key="Double2">15</System:Double>

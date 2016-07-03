@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\projects\wpf\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\
+C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\
 WpfApplication2016_06_28
 none
 false
 DEBUG;TRACE
-C:\projects\wpf\WpfApplicationWithDemos\WpfApplicationWithDemos\App.xaml
-3-866708618
+C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\App.xaml
+4-433334232
 
-8-1214536245
-15135206954
-01_BindingToOtherWpfElement\MainWindow.xaml;02_Splitter\Window1.xaml;03_SimpleViewModel\Window2.xaml;
+10-2101552309
+15-213306438
+01_BindingToOtherWpfElement\MainWindow.xaml;02_Splitter\Window1.xaml;03_SimpleViewModel\Window2.xaml;Window3.xaml;
 
 False
 
