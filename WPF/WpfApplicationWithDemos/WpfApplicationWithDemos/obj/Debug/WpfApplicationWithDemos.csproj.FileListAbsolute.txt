@@ -27,6 +27,7 @@ C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\bin\
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\01_BindingToOtherWpfElement\MainWindow.g.cs
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\02_Splitter\Window1.g.cs
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\03_SimpleViewModel\Window2.g.cs
+C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\05_CommandBinding\Window5.g.cs
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\Window3.g.cs
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\App.g.cs
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\WpfApplication2016-06-28_MarkupCompile.cache
@@ -35,6 +36,7 @@ C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\01_BindingToOtherWpfElement\MainWindow.baml
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\02_Splitter\Window1.baml
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\03_SimpleViewModel\Window2.baml
+C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\05_CommandBinding\Window5.baml
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\Window3.baml
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\WpfApplication2016-06-28.g.resources
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\obj\Debug\WpfApplication2016_06_28.Properties.Resources.resources

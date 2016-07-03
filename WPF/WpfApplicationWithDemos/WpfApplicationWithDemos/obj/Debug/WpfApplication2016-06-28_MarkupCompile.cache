@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\projects\DotNetDemos\WPF\WpfApplicationWithDemos\WpfApplicationWithDemos\App.xaml
-4-433334232
+5-921946979
 
-10-2101552309
+11-1775767319
 15-213306438
-01_BindingToOtherWpfElement\MainWindow.xaml;02_Splitter\Window1.xaml;03_SimpleViewModel\Window2.xaml;Window3.xaml;
+01_BindingToOtherWpfElement\MainWindow.xaml;02_Splitter\Window1.xaml;03_SimpleViewModel\Window2.xaml;05_CommandBinding\Window5.xaml;Window3.xaml;
 
 False
 
