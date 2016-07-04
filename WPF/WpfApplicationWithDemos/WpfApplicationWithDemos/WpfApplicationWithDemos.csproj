@@ -78,6 +78,11 @@
     <Compile Include="06_LoadXmlIntoDataGrid\Window6.xaml.cs">
       <DependentUpon>Window6.xaml</DependentUpon>
     </Compile>
+    <Compile Include="07_SelectedItemProperty\MainWindowViewModel.cs" />
+    <Compile Include="07_SelectedItemProperty\People.cs" />
+    <Compile Include="07_SelectedItemProperty\Window7.xaml.cs">
+      <DependentUpon>Window7.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel3.cs" />
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
@@ -107,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="06_LoadXmlIntoDataGrid\Window6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="07_SelectedItemProperty\Window7.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
