@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApplication1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="350" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <ListBox SelectedItem="{Binding SelectedPerson}"
+               DisplayMemberPath="Name"
+               ItemsSource="{Binding MyPeeps}" />
+        </DockPanel>
+        <DockPanel Grid.Column="2">
+            <StackPanel>
+                <Label>Name</Label>
+                <TextBox Text="{Binding SelectedPerson.Name}" />
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
