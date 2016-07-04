@@ -72,6 +72,12 @@
     <Compile Include="05_CommandBinding\Window5.xaml.cs">
       <DependentUpon>Window5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="06_LoadXmlIntoDataGrid\OldNewPackageId.cs" />
+    <Compile Include="06_LoadXmlIntoDataGrid\DogPackage.cs" />
+    <Compile Include="06_LoadXmlIntoDataGrid\DogPackages.cs" />
+    <Compile Include="06_LoadXmlIntoDataGrid\Window6.xaml.cs">
+      <DependentUpon>Window6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel3.cs" />
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
@@ -99,6 +105,10 @@
     <Page Include="05_CommandBinding\Window5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="06_LoadXmlIntoDataGrid\Window6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Window3.xaml">
       <SubType>Designer</SubType>
@@ -131,7 +141,14 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="06_LoadXmlIntoDataGrid\c.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="06_LoadXmlIntoDataGrid\d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
