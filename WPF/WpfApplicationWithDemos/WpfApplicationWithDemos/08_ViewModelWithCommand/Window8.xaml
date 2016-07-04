@@ -20,8 +20,8 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" />
-            <Button Grid.Row="1" Margin="50,0,10,0" Content="Add"/>
+            <TextBox Grid.Row="0" Text="{Binding ItemText}" />
+            <Button Grid.Row="1" Margin="50,0,10,0" Content="Add" Command="{Binding AddItem}"/>
         </Grid>
     </Grid>
 </Window>

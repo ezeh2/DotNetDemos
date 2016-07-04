@@ -24,22 +24,6 @@ namespace WpfApplication2016_06_28
 
             ViewModel3 viewModel3 = new ViewModel3();
             this.DataContext = viewModel3;
-
-            // CTRL-Q also executes a Find-comand
-            ApplicationCommands.Find.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
-
-            // execute find-command right now
-            // ApplicationCommands.Find.Execute(null, this);
-
-            CommandBinding cb = new CommandBinding();
-            cb.Command = ApplicationCommands.Find;
-            cb.Executed += Cb_Executed;
-            this.CommandBindings.Add(cb);
-        }
-
-        private void Cb_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("sxxs");
         }
     }
 }
