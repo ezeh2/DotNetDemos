@@ -62,6 +62,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Company.cs" />
+    <Compile Include="Data\Division.cs" />
     <Compile Include="03_SimpleViewModel\ViewModel2.cs" />
     <Compile Include="02_Splitter\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -124,8 +126,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="09_MasterChild\MasterChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="09_MasterChild\MasterChild.xaml.cs">
+      <DependentUpon>MasterChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\CustomerList.cs" />
+    <Compile Include="Data\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

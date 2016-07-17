@@ -18,6 +18,12 @@ namespace WpfApplication2016_06_28
             this.List.Add("c");
 
             _addItem = new CommandHandler(() => Execute_AddItem(), true);
+            _addItem.CanExecuteChanged += _addItem_CanExecuteChanged;
+        }
+
+        private void _addItem_CanExecuteChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public void Execute_AddItem()

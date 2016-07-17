@@ -3,22 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApplication2016_06_28.MasterChild"
+        xmlns:local="clr-namespace:WpfApplication2016_06_28"
         mc:Ignorable="d"
         Title="MasterChild" Height="400" Width="800">
-    <Grid>
+    <Window.Resources>
+        <local:Company x:Key="Company"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource Company} }" >
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="AliceBlue" >
             <Label>Divisions</Label>
-            <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name"  Height="150" Width="500" HorizontalAlignment="Left"/>
+            <ListBox Name="lb1" ItemsSource="{Binding Source={StaticResource Company}, Path=Divisions}" IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name"  Height="150" Width="500" HorizontalAlignment="Left"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Background="Red" Height="200">
-            <Label Content="{Binding Path=Name}"/>
+        <StackPanel Grid.Row="1" Background="Blue" Height="200">
+            <Label Content="{Binding ElementName=lb1, Path=SelectedItem.Name}"/>
             <!-- doesn't work-->
-            <ListBox ItemsSource="{Binding Path=Groups}" DisplayMemberPath="Name"  Height="150" Width="500" HorizontalAlignment="Left"/>
+            <ListBox ItemsSource="{Binding ElementName=lb1, Path=SelectedItem.Groups}" DisplayMemberPath="Name"  Height="150" Width="500" HorizontalAlignment="Left"/>
         </StackPanel>
     </Grid>
 </Window>

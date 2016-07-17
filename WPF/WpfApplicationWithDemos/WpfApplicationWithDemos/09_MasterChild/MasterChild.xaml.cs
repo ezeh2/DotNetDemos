@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -23,15 +24,9 @@ namespace WpfApplication2016_06_28.MasterChild
         {
             InitializeComponent();
 
-            ObservableCollection<Division> divs = new ObservableCollection<Division>();
-            divs.Add(new Division { Name = "div1"});
-            divs.Add(new Division { Name = "div2" });
-            divs[0].Groups.Add(new Group { Name = "grp1" });
-            divs[0].Groups.Add(new Group { Name = "grp2" });
-            divs[1].Groups.Add(new Group { Name = "grp3" });
-            divs[1].Groups.Add(new Group { Name = "grp4" });
+            Company company = new Company();
 
-            this.DataContext = divs;
+            this.DataContext = company;
         }
     }
 }
