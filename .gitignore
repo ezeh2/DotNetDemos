@@ -3,3 +3,11 @@
 ################################################################################
 
 /SmallNotesApplication/obj
+/SmallNotesApplication/bin/Debug
+/SmallNotesApplication/.vs/SmallNotesApplication/v16
+/MelodyServerConsoleApp/obj
+/MelodyServerConsoleApp/bin/Debug
+/MelodyServerConsoleApp/.vs/MelodyServerConsoleApp/v16
+/QuoteWindowsApplication/obj
+/QuoteWindowsApplication/bin/Debug
+/QuoteWindowsApplication/.vs/QuoteWindowsApplication/v16

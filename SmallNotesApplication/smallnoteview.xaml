@@ -1,0 +1,18 @@
+<Window x:Class="SmallNotesApplication.SmallNoteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmallNotesApplication"
+        Title="SmallNoteView" Height="200" Width="400">
+  <Grid>
+    <StackPanel Orientation="Vertical" ZIndex="{Binding ZIndex}">
+      <TextBlock Height="120" TextWrapping="Wrap" Background="LightGray" Text="{Binding ShowText}"/>
+      <Button Content="Edit" Height="30" Command="{Binding EditCommand}"/>
+    </StackPanel>
+    <StackPanel Orientation="Vertical">
+      <TextBox Height="120" Text="{Binding EditText}"/>
+      <Button Content="Save" Height="30" Command="{Binding SaveCommand}"/>
+    </StackPanel>
+  </Grid>
+</Window>
