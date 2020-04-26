@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE Command [
+  <!ENTITY fileFromServer SYSTEM "https://www.migros.ch/robots.txt">
+]>
+<Command>
+  <Name>FindQuote &fileFromServer;</Name>
+  <Parameters>
+    <Parameter name="quote_contains" value="different"></Parameter>
+  </Parameters>
+</Command>

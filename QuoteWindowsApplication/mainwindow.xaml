@@ -21,5 +21,9 @@
              TextWrapping="Wrap" AcceptsReturn="true"/>
     <TextBox x:Name="responseTextBox" Grid.Row="2" Grid.Column="0" Margin="5" VerticalScrollBarVisibility="Auto"
              TextWrapping="Wrap" AcceptsReturn="true"/>
-  </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <CheckBox x:Name="checkBox" HorizontalAlignment="Center" />
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center">Don't show command in response</TextBlock>
+        </StackPanel>
+    </Grid>
 </Window>

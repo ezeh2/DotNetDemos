@@ -15,7 +15,7 @@ namespace QuoteWindowsApplication
     private CommandManager commandManager = new CommandManager();
     private QuoteManager quoteManager = new QuoteManager();
 
-    internal string Process(string request)
+    internal string Process(string request, bool dontShowCommandInResponse)
     {
       XmlDocument xmlDocument = new XmlDocument();
       xmlDocument.LoadXml(request);
@@ -42,7 +42,14 @@ namespace QuoteWindowsApplication
           str = this.quoteManager.GetQuote(parameters);
           break;
         default:
-          str = "unknown command: " + innerText1;
+            if (dontShowCommandInResponse)
+            {
+                        str = "unknown command !";
+            }
+            else
+            {
+                str = "unknown command: " + innerText1 + " !";
+            }
           break;
       }
       return str;

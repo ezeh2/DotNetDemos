@@ -40,9 +40,11 @@ namespace QuoteWindowsApplication
     private void Button_Click(object sender, RoutedEventArgs e)
     {
       string text = this.requestTextBox.Text;
-      if (string.IsNullOrEmpty(text))
-        return;
-      this.responseTextBox.Text = this.xmlRequestProcessor.Process(text);
+      if (!string.IsNullOrEmpty(text))
+      {
+                bool dontShowCommandInResponse = this.checkBox.IsChecked.GetValueOrDefault(false);
+            this.responseTextBox.Text = this.xmlRequestProcessor.Process(text, dontShowCommandInResponse);
+      }
     }
   }
 }

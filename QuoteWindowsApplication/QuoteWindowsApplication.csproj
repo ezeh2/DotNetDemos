@@ -67,7 +67,13 @@
     <Content Include="Commands\FindQuoteCommand.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Commands\FindQuoteCommandMalicious1.xml">
+    <Content Include="Commands\FindQuoteCommandGetFileFromServer.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Commands\FindQuoteCommandReadSecretLocalFile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Commands\FindQuoteCommandMaliciousAll.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Commands\HelpCommand.xml">
