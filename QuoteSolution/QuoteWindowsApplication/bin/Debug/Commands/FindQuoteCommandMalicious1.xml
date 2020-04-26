@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE Command [
+  <!ELEMENT Names (Name) >
+  <!ENTITY entity1 "noch kuerzer">
+  <!ENTITY % k1 "<!ENTITY entity2 'abc dcdcdc'>">
+  %k1;
+  <!ENTITY xxe1 SYSTEM "file://C:/temp/test.txt">
+  <!ENTITY xxe2 SYSTEM "file://C:/temp/test.txt">
+  <!ENTITY xxe3 SYSTEM "file://C:/temp/testapp2/appsettings.json">
+  <!ENTITY xxe4 SYSTEM "https://www.migros.ch/robots.txt">
+]>
+<Command>
+  <Name>FindQuote &entity1;</Name>
+  <Parameters>
+    <Parameter name="quote_contains" value="different"></Parameter>
+  </Parameters>
+</Command>

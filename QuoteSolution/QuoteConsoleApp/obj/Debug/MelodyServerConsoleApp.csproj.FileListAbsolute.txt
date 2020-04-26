@@ -1,0 +1,10 @@
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\MoonLight.xml
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\MelodyServerConsoleApp.exe
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\MelodyServerConsoleApp.pdb
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\obj\Debug\MelodyServerConsoleApp.csprojAssemblyReference.cache
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\obj\Debug\MelodyServerConsoleApp.exe
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\obj\Debug\MelodyServerConsoleApp.pdb
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\BadLight.xml
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\MelodyServerConsoleApp.exe.config
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\quotes_html.xml
+C:\projects\MelodyServerConsoleApp\MelodyServerConsoleApp\bin\Debug\quotes.xml
