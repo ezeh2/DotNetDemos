@@ -2,6 +2,7 @@
 <Command>
   <Name>FindQuote</Name>
   <Parameters>
+    <!-- universe, war, human, Friendship, years, impatient, insecure -->
     <Parameter name="quote_contains" value="different"></Parameter>
   </Parameters>
 </Command>

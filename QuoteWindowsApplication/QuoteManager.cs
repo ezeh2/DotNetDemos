@@ -29,8 +29,11 @@ namespace QuoteWindowsApplication
       if (source.Count<KeyValuePair<string, string>>() == 1)
         str = source.First<KeyValuePair<string, string>>().Value;
       XmlNodeList xmlNodeList = (XmlNodeList) null;
-      if (!string.IsNullOrEmpty(str))
-        xmlNodeList = this.xmlDocument.SelectNodes("/quotes/quote[contains(text,'" + str + "')]");
+        if (str == null)
+        {
+            str = "";
+        }
+      xmlNodeList = this.xmlDocument.SelectNodes("/quotes/quote[contains(text,'" + str + "')]");
       StringBuilder stringBuilder = new StringBuilder();
       stringBuilder.AppendLine(string.Format("{0} quotes found", (object) xmlNodeList.Count));
       stringBuilder.AppendLine();

@@ -67,6 +67,9 @@
     <Content Include="Commands\FindQuoteCommand.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Commands\FindQuoteCommandSendToAnotherServer.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Commands\FindQuoteCommandGetFileFromServer.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
