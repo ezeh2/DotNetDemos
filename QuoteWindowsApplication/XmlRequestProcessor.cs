@@ -19,6 +19,7 @@ namespace QuoteWindowsApplication
     {
       XmlDocument xmlDocument = new XmlDocument();
       xmlDocument.LoadXml(request);
+      var ss = xmlDocument.Schemas;
       string innerText1 = ((XmlElement) xmlDocument.GetElementsByTagName("Command")[0]).GetElementsByTagName("Name")[0].InnerText;
       XmlNodeList elementsByTagName = xmlDocument.GetElementsByTagName("Parameter");
       List<KeyValuePair<string, string>> parameters = new List<KeyValuePair<string, string>>();
