@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Command xmlns:secondaryns="http://localhost/banane/test.txt" xmlns:xsi="http://localhost/banane/test.txt" xsi:schemaLocation="http://localhost/banane/test.txt">
+  <Name>FindQuote</Name>
+  <Parameters>
+    <!-- universe, war, human, Friendship, years, impatient, insecure -->
+    <Parameter name="quote_contains" value="different"></Parameter>
+  </Parameters>
+  <secondaryns:s> Hello! </secondaryns:s>
+</Command>
