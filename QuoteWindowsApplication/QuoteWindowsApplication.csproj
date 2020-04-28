@@ -64,6 +64,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Commands\FindQuoteCommandSendToAnotherServerExternalDtd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Commands\FindQuoteCommandXsdHttpRequest.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -89,6 +92,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="WebServerWithPython.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Commands\FindQuoteCommandSendToAnotherServer.dtd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

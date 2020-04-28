@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE Command SYSTEM "Commands/FindQuoteCommandSendToAnotherServer.dtd">
+<Command>
+  <Name>FindQuote &send;</Name>
+  <Parameters>
+    <Parameter name="quote_contains" value="different"></Parameter>
+  </Parameters>
+</Command>
+
