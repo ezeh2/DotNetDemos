@@ -7,7 +7,7 @@
     <ProjectGuid>{ECB26273-2DA1-479F-B44B-649E72EFEF05}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AssemblyName>QuoteWindowsApplication</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ApplicationVersion>1.0.0.0</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
@@ -97,6 +97,9 @@
     <Content Include="Commands\FindQuoteCommandSendToAnotherServer.dtd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
