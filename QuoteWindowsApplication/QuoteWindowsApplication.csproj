@@ -94,7 +94,7 @@
     <Content Include="WebServerWithPython.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Commands\FindQuoteCommandSendToAnotherServer.dtd">
+    <Content Include="Commands\FindQuoteCommandSendToAnotherServerExternalDtd.dtd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

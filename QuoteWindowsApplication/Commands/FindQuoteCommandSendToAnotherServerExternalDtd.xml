@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE Command SYSTEM "Commands/FindQuoteCommandSendToAnotherServer.dtd">
+<!DOCTYPE Command SYSTEM "Commands/FindQuoteCommandSendToAnotherServerExternalDtd.dtd">
 <Command>
   <Name>FindQuote &send;</Name>
   <Parameters>
