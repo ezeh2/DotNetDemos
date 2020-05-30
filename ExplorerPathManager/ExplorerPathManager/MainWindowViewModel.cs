@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ExplorerPathManager.Annotations;
+using Shell32;
 
 namespace ExplorerPathManager
 {
@@ -22,7 +23,7 @@ namespace ExplorerPathManager
                 string path = o as string;
                 if (path != null)
                 {
-                    WindowsExplorerChangeLocation.Execute(path);
+                    WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
                 }
             });
         }
