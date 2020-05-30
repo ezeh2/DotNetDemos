@@ -14,9 +14,41 @@ namespace ExplorerPathManager
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private const string FolderFile = "folders.txt";
+
         public MainWindowViewModel()
         {
-            string[] folders = File.ReadAllLines("folders.txt");
+            OpenInFileExplorerCommand = new DelegateCommand(OpenInFileExplorer);
+            AddCurrentFolderOfFileExplorerCommand = new DelegateCommand(AddCurrentFolderOfFileExplorer);
+
+            this.Load(FolderFile);
+        }
+
+        private void OpenInFileExplorer(object o)
+        {
+            string path = o as string;
+            if (path != null)
+            {
+                WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
+            }
+        }
+
+        private void AddCurrentFolderOfFileExplorer(object o)
+        {
+            List<string> fols = WindowsExplorerChangeLocation.GetFoldersOfFileExplorers();
+            foreach (string folder in fols)
+            {
+                if (!Items.Contains(folder))
+                {
+                    Items.Add(folder);
+                }
+            }
+            Save(FolderFile);
+        }
+
+        private void Load(string path)
+        {
+            string[] folders = File.ReadAllLines(path);
             foreach (string folder in folders)
             {
                 if (!string.IsNullOrEmpty(folder))
@@ -24,27 +56,18 @@ namespace ExplorerPathManager
                     Items.Add(folder);
                 }
             }
+        }
 
-            OpenInFileExplorerCommand = new DelegateCommand((o) =>
+        private void Save(string path)
+        {
+            using (FileStream fs = File.Open(path, FileMode.Truncate,FileAccess.Write,FileShare.Write))
             {
-                string path = o as string;
-                if (path != null)
+                using(StreamWriter sw = new StreamWriter(fs))
+                foreach (string item in Items)
                 {
-                    WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
+                    sw.WriteLine(item);
                 }
-            });
-
-            AddCurrentFolderOfFileExplorerCommand = new DelegateCommand((o) =>
-                {
-                    List<string> fols = WindowsExplorerChangeLocation.GetFoldersOfFileExplorers();
-                    foreach (string folder in fols)
-                    {
-                        if (!Items.Contains(folder))
-                        {
-                            Items.Add(folder);
-                        }
-                    }
-                });
+            }
         }
 
         public ObservableCollection<string> Items { get; set; } = new ObservableCollection<string>();
