@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl x:Name="tabControl" Margin="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Command="{Binding AddCurrentFolderOfFileExplorerCommand}">Add current folder of file explorer</Button>
+        <TabControl Grid.Row="1" x:Name="tabControl" Margin="0" >
             <TabItem Header="Main">
                 <Grid Background="#FFE5E5E5">
                     <ListView x:Name="ListView" ItemsSource="{Binding Items}" MouseDoubleClick="Control_OnMouseDoubleClick">

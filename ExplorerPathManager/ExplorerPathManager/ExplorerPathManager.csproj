@@ -95,6 +95,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="folders.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="WindowsExplorerChangeLocation.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -10,6 +10,26 @@ namespace ExplorerPathManager
 {
     public class WindowsExplorerChangeLocation
     {
+        public static List<string> GetFoldersOfFileExplorers()
+        {
+            List<string> ret = new List<string>();
+
+            Shell32.Shell shell = new Shell32.Shell();
+
+            dynamic windows = shell.Windows();
+            int cnt = windows.Count;
+            for (int i = 0; i < cnt; i++)
+            {
+                dynamic window = windows[i];
+                string locationUrl = window.LocationURL;
+                Uri uri = new Uri(locationUrl);
+                string p = uri.AbsolutePath.Replace("/", "\\");
+                ret.Add(p);
+            }
+
+            return ret;
+        }
+
         public static void WithoutPowerShellScript(string path)
         {
             Shell32.Shell shell = new Shell32.Shell();
