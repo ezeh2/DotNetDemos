@@ -60,6 +60,10 @@ namespace ExplorerPathManager
 
         private void Save(string path)
         {
+            string dt = DateTime.Now.ToString("yyyy-dd-MM_HH-mm-ss");
+
+            File.Copy(path,$"{path}_{dt}");
+
             using (FileStream fs = File.Open(path, FileMode.Truncate,FileAccess.Write,FileShare.Write))
             {
                 using(StreamWriter sw = new StreamWriter(fs))
