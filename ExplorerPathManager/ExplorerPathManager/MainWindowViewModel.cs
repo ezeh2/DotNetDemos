@@ -9,52 +9,87 @@ using System.Text;
 using System.Threading.Tasks;
 using ExplorerPathManager.Annotations;
 using Shell32;
+using NLog;
 
 namespace ExplorerPathManager
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private const string FolderFile = "folders.txt";
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public MainWindowViewModel()
         {
-            OpenInFileExplorerCommand = new DelegateCommand(OpenInFileExplorer);
-            AddCurrentFolderOfFileExplorerCommand = new DelegateCommand(AddCurrentFolderOfFileExplorer);
+            logger.Info("MainViewModel, ctor, begin");
+            try
+            {
+                OpenInFileExplorerCommand = new DelegateCommand(OpenInFileExplorer);
+                AddCurrentFolderOfFileExplorerCommand = new DelegateCommand(AddCurrentFolderOfFileExplorer);
 
-            this.Load(FolderFile);
+                this.Load(FolderFile);
+            }
+            catch (Exception e)
+            {
+                logger.Fatal(e);
+                throw;
+            }
         }
 
         private void OpenInFileExplorer(object o)
         {
-            string path = o as string;
-            if (path != null)
+            try
             {
-                WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
+                string path = o as string;
+                if (path != null)
+                {
+                    WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
+                }
+            }
+            catch (Exception e)
+            {
+                logger.Fatal(e);
+                throw;
             }
         }
 
         private void AddCurrentFolderOfFileExplorer(object o)
         {
-            List<string> fols = WindowsExplorerChangeLocation.GetFoldersOfFileExplorers();
-            foreach (string folder in fols)
+            try
             {
-                if (!Items.Contains(folder))
+                List<string> fols = WindowsExplorerChangeLocation.GetFoldersOfFileExplorers();
+                foreach (string folder in fols)
                 {
-                    Items.Add(folder);
+                    if (!Items.Contains(folder))
+                    {
+                        Items.Add(folder);
+                    }
                 }
+                Save(FolderFile);
             }
-            Save(FolderFile);
+            catch (Exception e)
+            {
+                logger.Fatal(e);
+                throw;
+            }
         }
 
         private void Load(string path)
         {
-            string[] folders = File.ReadAllLines(path);
-            foreach (string folder in folders)
+            try
             {
-                if (!string.IsNullOrEmpty(folder))
+                string[] folders = File.ReadAllLines(path);
+                foreach (string folder in folders)
                 {
-                    Items.Add(folder);
+                    if (!string.IsNullOrEmpty(folder))
+                    {
+                        Items.Add(folder);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                logger.Fatal(e);
+                throw;
             }
         }
 

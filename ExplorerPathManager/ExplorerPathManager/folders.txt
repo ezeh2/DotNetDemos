@@ -1,2 +1,13 @@
-﻿C:\software_downloads
-C:\temp\2020-Mai\2020-05-30
+﻿S:\Software-Ablage\PAL3\Entwicklung\Build-Output\PALmoduleTesterSeries2
+S:\Software-Ablage\PAL3\Entwicklung\Build-Output\VS2015
+S:\Software-Ablage\PAL3\Clipboard
+C:\Users\ezeh\WorkFolders
+C:\Users\ezeh\AppData\Roaming\smart_branding_software
+C:\ProgramData\CTC Analytics AG\SmartBrandingSoftware
+C:\Work\PALplus\Platform\Integration\DevTools\PALpersistencyData
+C:\Work\TAM_SDK_7_4\DevTools
+C:\Work\PALplus\Platform\Integration\DevTools
+C:\Work\PALplus\WebApplications
+P:\Prod_Anweisungen\Prüfanweisungen\PAL3
+P:\FuE-Software\OneNote\P0182_PAL_Module_Tester_Series2\PruefanweisungenInArbeit
+P:\FuE-Elektronik\PALbusTestShell\Program Version Folders
