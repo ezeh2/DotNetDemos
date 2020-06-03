@@ -6,13 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using NLog;
 
 namespace ExplorerPathManager
 {
     public class WindowsExplorerChangeLocation
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public static List<string> GetFoldersOfFileExplorers()
         {
+            logger.Debug("GetFoldersOfFileExplorers, begin");
+
             List<string> ret = new List<string>();
 
             Shell32.Shell shell = new Shell32.Shell();
@@ -23,9 +28,19 @@ namespace ExplorerPathManager
             {
                 dynamic window = windows[i];
                 string locationUrl = window.LocationURL;
-                Uri uri = new Uri(locationUrl);
-                string p = uri.AbsolutePath.Replace("/", "\\");
-                ret.Add(p);
+                logger.Debug($"locationUrl: {locationUrl}");
+                if (!string.IsNullOrEmpty(locationUrl))
+                {
+                    Uri uri = new Uri(locationUrl);
+                    logger.Debug(uri);
+                    string p = uri.AbsolutePath.Replace("/", "\\");
+                    logger.Debug(p);
+                    ret.Add(p);
+                }
+                else
+                {
+                    logger.Error("locationUrl is empty");
+                }
             }
 
             return ret;
@@ -33,6 +48,8 @@ namespace ExplorerPathManager
 
         public static void WithoutPowerShellScript(string path)
         {
+            logger.Debug("WithoutPowerShellScript, begin");
+            logger.Debug(path);
             if (!Directory.Exists(path))
             {
                 MessageBox.Show(path, "Existiert nicht", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -41,11 +58,11 @@ namespace ExplorerPathManager
 
             try
             {
-
                 Shell32.Shell shell = new Shell32.Shell();
 
                 dynamic windows = shell.Windows();
                 int cnt = windows.Count;
+                logger.Debug($"cnt: {cnt}");
                 if (cnt == 0)
                 {
                     var application = shell.Application;
@@ -70,6 +87,8 @@ namespace ExplorerPathManager
 
         public static void WithPowerShellScript(string path)
         {
+            logger.Debug("WithPowerShellScript, begin");
+            logger.Debug(path);
             string dir = Directory.GetCurrentDirectory();
 
             ProcessStartInfo startInfo = new ProcessStartInfo();

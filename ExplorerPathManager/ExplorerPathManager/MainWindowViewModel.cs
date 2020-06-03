@@ -20,7 +20,7 @@ namespace ExplorerPathManager
 
         public MainWindowViewModel()
         {
-            logger.Info("MainViewModel, ctor, begin");
+            logger.Debug("MainViewModel, ctor, begin");
             try
             {
                 OpenInFileExplorerCommand = new DelegateCommand(OpenInFileExplorer);
@@ -37,11 +37,13 @@ namespace ExplorerPathManager
 
         private void OpenInFileExplorer(object o)
         {
+            logger.Debug("OpenInFileExplorer, begin");
             try
             {
                 string path = o as string;
                 if (path != null)
                 {
+                    logger.Debug(path);
                     WindowsExplorerChangeLocation.WithoutPowerShellScript(path);
                 }
             }
@@ -54,13 +56,16 @@ namespace ExplorerPathManager
 
         private void AddCurrentFolderOfFileExplorer(object o)
         {
+            logger.Debug("AddCurrentFolderOfFileExplorer, begin");
             try
             {
                 List<string> fols = WindowsExplorerChangeLocation.GetFoldersOfFileExplorers();
                 foreach (string folder in fols)
                 {
+                    logger.Debug(folder);
                     if (!Items.Contains(folder))
                     {
+                        logger.Debug(folder);
                         Items.Add(folder);
                     }
                 }
@@ -75,13 +80,17 @@ namespace ExplorerPathManager
 
         private void Load(string path)
         {
+            logger.Debug("Load, begin");
+            logger.Debug(path);
             try
             {
                 string[] folders = File.ReadAllLines(path);
                 foreach (string folder in folders)
                 {
+                    logger.Debug(folder);
                     if (!string.IsNullOrEmpty(folder))
                     {
+                        logger.Debug(folder);
                         Items.Add(folder);
                     }
                 }
@@ -95,6 +104,8 @@ namespace ExplorerPathManager
 
         private void Save(string path)
         {
+            logger.Debug("Save, begin");
+            logger.Debug(path);
             string dt = DateTime.Now.ToString("yyyy-dd-MM_HH-mm-ss");
 
             File.Copy(path,$"{path}_{dt}");
