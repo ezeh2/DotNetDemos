@@ -13,6 +13,10 @@ using NLog;
 
 namespace ExplorerPathManager
 {
+    /// <summary>
+    /// instead of ListView this could be used:
+    /// https://www.codeproject.com/articles/29350/wpf-breadcrumbbar
+    /// </summary>
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private string FolderFile;
