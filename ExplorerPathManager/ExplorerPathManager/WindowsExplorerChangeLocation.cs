@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using NLog;
+using Shell32;
 
 namespace ExplorerPathManager
 {
@@ -59,14 +62,25 @@ namespace ExplorerPathManager
             try
             {
                 Shell32.Shell shell = new Shell32.Shell();
-
+               
                 dynamic windows = shell.Windows();
                 int cnt = windows.Count;
                 logger.Debug($"cnt: {cnt}");
                 for (int i = 0; i < cnt; i++)
                 {
                     object o = windows[i];
-                    logger.Debug($"{i}: {o}");
+                    /*
+                    bool x1 = o is IShellDispatch;
+                    bool x2 = o is IShellDispatch2;
+                    bool x3 = o is IShellDispatch3;
+                    bool x4 = o is IShellDispatch4;
+                    bool x5 = o is IShellDispatch5;
+                    bool x6 = o is IShellDispatch6;
+                    */
+                    // https://www.add-in-express.com/creating-addins-blog/2011/12/20/type-name-system-comobject/
+                    IntPtr idispatch = Marshal.GetIDispatchForObject(o);
+                    IntPtr iunknown = Marshal.GetIUnknownForObject(o);
+                    logger.Debug($"{i}: {o}, IsComObject: {Marshal.IsComObject(o)}, idispatch: {idispatch}, iunknown: {iunknown} ");
                 }
                 if (cnt == 0)
                 {
