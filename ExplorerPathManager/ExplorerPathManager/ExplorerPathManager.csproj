@@ -117,9 +117,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Resource Include="epm.ico" />
-    <Content Include="folders.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="folders.txt" />
     <None Include="Resources\epm.ico" />
     <Content Include="WindowsExplorerChangeLocation.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

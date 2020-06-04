@@ -39,6 +39,8 @@ namespace ExplorerPathManager
                     logger.Debug(uri);
                     string p = uri.AbsolutePath.Replace("/", "\\");
                     logger.Debug(p);
+                    p = Uri.UnescapeDataString(p);
+                    logger.Debug(p);
                     ret.Add(p);
                 }
                 else

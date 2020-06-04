@@ -15,12 +15,15 @@ namespace ExplorerPathManager
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private const string FolderFile = "folders.txt";
+        private string FolderFile;
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public MainWindowViewModel()
         {
             logger.Debug("MainViewModel, ctor, begin");
+            FolderFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "folders.txt");
+
             try
             {
                 OpenInFileExplorerCommand = new DelegateCommand(OpenInFileExplorer);
@@ -82,16 +85,20 @@ namespace ExplorerPathManager
         {
             logger.Debug("Load, begin");
             logger.Debug(path);
+
             try
             {
-                string[] folders = File.ReadAllLines(path);
-                foreach (string folder in folders)
+                if (File.Exists(path))
                 {
-                    logger.Debug(folder);
-                    if (!string.IsNullOrEmpty(folder))
+                    string[] folders = File.ReadAllLines(path);
+                    foreach (string folder in folders)
                     {
                         logger.Debug(folder);
-                        Items.Add(folder);
+                        if (!string.IsNullOrEmpty(folder))
+                        {
+                            logger.Debug(folder);
+                            Items.Add(folder);
+                        }
                     }
                 }
             }
@@ -108,9 +115,12 @@ namespace ExplorerPathManager
             logger.Debug(path);
             string dt = DateTime.Now.ToString("yyyy-dd-MM_HH-mm-ss");
 
-            File.Copy(path,$"{path}_{dt}");
+            if (File.Exists(path))
+            {
+                File.Copy(path, $"{path}_{dt}");
+            }
 
-            using (FileStream fs = File.Open(path, FileMode.Truncate,FileAccess.Write,FileShare.Write))
+            using (FileStream fs = File.Open(path, FileMode.Create,FileAccess.Write,FileShare.Write))
             {
                 using(StreamWriter sw = new StreamWriter(fs))
                 foreach (string item in Items)
