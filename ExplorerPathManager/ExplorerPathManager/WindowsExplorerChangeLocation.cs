@@ -63,6 +63,11 @@ namespace ExplorerPathManager
                 dynamic windows = shell.Windows();
                 int cnt = windows.Count;
                 logger.Debug($"cnt: {cnt}");
+                for (int i = 0; i < cnt; i++)
+                {
+                    object o = windows[i];
+                    logger.Debug($"{i}: {o}");
+                }
                 if (cnt == 0)
                 {
                     var application = shell.Application;
