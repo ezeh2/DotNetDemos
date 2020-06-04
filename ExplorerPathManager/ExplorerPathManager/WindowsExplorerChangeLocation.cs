@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -49,6 +50,14 @@ namespace ExplorerPathManager
             return ret;
         }
 
+        /// <summary>
+        /// system.dynamic.dynamicobject
+        /// https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.dynamicobject?view=netcore-3.1
+        /// system.dynamic.dynamicmetaobject.getdynamicmembernames
+        /// https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.dynamicmetaobject.getdynamicmembernames?view=netcore-3.1
+        /// https://bytes.com/topic/c-sharp/answers/244327-idispatch-getidsfromnames
+        /// </summary>
+        /// <param name="path"></param>
         public static void WithoutPowerShellScript(string path)
         {
             logger.Debug("WithoutPowerShellScript, begin");
@@ -62,21 +71,17 @@ namespace ExplorerPathManager
             try
             {
                 Shell32.Shell shell = new Shell32.Shell();
-               
+
+                // this is NOT IDynamicMetaObjectProvider and NOT DynamicObject !
+                // this is NOT IShellDispatch...IShellDispatch6
                 dynamic windows = shell.Windows();
                 int cnt = windows.Count;
                 logger.Debug($"cnt: {cnt}");
                 for (int i = 0; i < cnt; i++)
                 {
+                    // this is NOT IDynamicMetaObjectProvider and NOT DynamicObject !
+                    // this is NOT IShellDispatch...IShellDispatch6
                     object o = windows[i];
-                    /*
-                    bool x1 = o is IShellDispatch;
-                    bool x2 = o is IShellDispatch2;
-                    bool x3 = o is IShellDispatch3;
-                    bool x4 = o is IShellDispatch4;
-                    bool x5 = o is IShellDispatch5;
-                    bool x6 = o is IShellDispatch6;
-                    */
                     // https://www.add-in-express.com/creating-addins-blog/2011/12/20/type-name-system-comobject/
                     IntPtr idispatch = Marshal.GetIDispatchForObject(o);
                     IntPtr iunknown = Marshal.GetIUnknownForObject(o);
