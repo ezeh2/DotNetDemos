@@ -32,10 +32,11 @@ namespace SchedulerConsoleApp
                 return;
             }
 
-            syncTasks.WaitForAll(this, (ownTask) =>
-             {
-                 WriteLine($"{ownTask.name}: WaitForAll done");
-             });
+            syncTasks.WaitForAll(this, 
+            () => WriteLine("executeBefore"),
+            (ownTask) => WriteLine($"{ownTask.name}: WaitForAll done"),
+            () => WriteLine("executeAfter")
+            );
 
             WriteLine("finished");
         }

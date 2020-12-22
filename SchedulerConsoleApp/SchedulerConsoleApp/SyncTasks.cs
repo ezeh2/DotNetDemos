@@ -9,6 +9,8 @@ namespace SchedulerConsoleApp
     {
         private List<OwnTask> ownTasks = new List<OwnTask>();
         private List<OwnTask> waitingOwnTasks = new List<OwnTask>();
+        private Action executeOneTimeBefore;
+        private Action executeOneTimeAfter;
         private List<Action<OwnTask>> waitingActions = new List<Action<OwnTask>>();
         private Semaphore semaphore;
 
@@ -46,13 +48,15 @@ namespace SchedulerConsoleApp
             }
         }
 
-        public void WaitForAll(OwnTask ownTask, Action<OwnTask> action)
+        public void WaitForAll(OwnTask ownTask, Action executeOneTimeBefore, Action<OwnTask> action, Action executeOneTimeAfter)
         {
             bool semaphoreWait = false;
             lock(this)
             {
-                waitingOwnTasks.Add(ownTask);
-                waitingActions.Add(action);
+                this.executeOneTimeBefore = executeOneTimeBefore;
+                this.executeOneTimeAfter = executeOneTimeAfter;
+                this.waitingOwnTasks.Add(ownTask);
+                this.waitingActions.Add(action);
                 if (waitingActions.Count < ownTasks.Count)
                 {
                     semaphoreWait = true;
@@ -70,10 +74,12 @@ namespace SchedulerConsoleApp
         {
             if ( (waitingActions.Count>0) && (waitingActions.Count == ownTasks.Count) )
             {
+                this.executeOneTimeBefore();
                 for (int k = 0; k < waitingOwnTasks.Count; k++)
                 {
                     waitingActions[k](waitingOwnTasks[k]);
                 }
+                this.executeOneTimeAfter();
                 // release all
                 if (semaphore!=null)
                 {
