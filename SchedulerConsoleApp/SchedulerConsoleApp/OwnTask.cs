@@ -8,19 +8,17 @@ namespace SchedulerConsoleApp
     class OwnTask
     {
         private string name;
-        private SyncTasks syncTasks;
         private int loopCount1;
         private bool finishedEarly;
 
-        internal OwnTask(SyncTasks syncTasks, string name, int loopCount1, bool finishedEarly)
+        internal OwnTask(string name, int loopCount1, bool finishedEarly)
         {
-            this.syncTasks = syncTasks;
             this.name = name;
             this.loopCount1 = loopCount1;
             this.finishedEarly = finishedEarly;
         }
 
-        public void Execute()
+        public void Execute(SyncTasks syncTasks)
         {
             for(int i=0;i< loopCount1;i++)
             {
