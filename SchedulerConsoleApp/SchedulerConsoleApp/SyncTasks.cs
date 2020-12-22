@@ -32,6 +32,7 @@ namespace SchedulerConsoleApp
                         throw new ApplicationException("e1");
                     }
                 }
+                ExecuteWaitingActions();
             }
         }
 
@@ -46,24 +47,32 @@ namespace SchedulerConsoleApp
                 {
                     semaphoreWait = true;
                 }
-                else
-                {
-                    for (int k = 0; k < waitingOwnTasks.Count; k++)
-                    {
-                        waitingActions[k](waitingOwnTasks[k]);
-                    }
-                    // release all
-                    semaphore.Release(waitingActions.Count);
-                    semaphore.Close();
-                    semaphore = null;
-                    waitingActions.Clear();
-                    waitingOwnTasks.Clear();
-                }
+                ExecuteWaitingActions();
             }
             if (semaphoreWait)
             {
                 // outside of lock(this)
                 semaphore.WaitOne();
+            }
+        }
+
+        private void ExecuteWaitingActions()
+        {
+            if (waitingActions.Count == ownTasks.Count)
+            {
+                for (int k = 0; k < waitingOwnTasks.Count; k++)
+                {
+                    waitingActions[k](waitingOwnTasks[k]);
+                }
+                // release all
+                if (semaphore!=null)
+                {
+                    semaphore.Release(waitingActions.Count);
+                    semaphore.Close();
+                    semaphore = null;
+                }
+                waitingActions.Clear();
+                waitingOwnTasks.Clear();
             }
         }
     }

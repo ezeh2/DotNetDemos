@@ -8,8 +8,21 @@ namespace SchedulerConsoleApp.UnitTests
     class Scheduler_Test
     {
         [Test]
-        [Timeout(20000)]
+        [Timeout(16000)]
         public void Test1()
+        {
+            List<OwnTask> ownTasks = new List<OwnTask>();
+            ownTasks.Add(new OwnTask("t1", 5, false));
+            ownTasks.Add(new OwnTask("t2", 15, false));
+            ownTasks.Add(new OwnTask("t3", 10, false));
+
+            Scheduler scheduler = new Scheduler();
+            scheduler.ExecuteInParallel(ownTasks);
+        }
+
+        [Test]
+        [Timeout(16000)]
+        public void Test2()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, true));
@@ -21,13 +34,27 @@ namespace SchedulerConsoleApp.UnitTests
         }
 
         [Test]
-        [Timeout(20000)]
-        public void Test2()
+        [Timeout(16000)]
+        public void Test3()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, false));
             ownTasks.Add(new OwnTask("t2", 15, true));
             ownTasks.Add(new OwnTask("t3", 10, false));
+
+            Scheduler scheduler = new Scheduler();
+            scheduler.ExecuteInParallel(ownTasks);
+        }
+
+
+        [Test]
+        [Timeout(16000)]
+        public void Test4()
+        {
+            List<OwnTask> ownTasks = new List<OwnTask>();
+            ownTasks.Add(new OwnTask("t1", 5, false));
+            ownTasks.Add(new OwnTask("t2", 15, false));
+            ownTasks.Add(new OwnTask("t3", 10, true));
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
