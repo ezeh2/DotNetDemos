@@ -91,6 +91,9 @@ namespace SchedulerConsoleApp.UnitTests
             // and not t1, t3, t2
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(3, waitForAllList.Count);
+            Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t3"));
+            Assert.IsTrue(waitForAllList[2].StartsWith("t2"));
         }
 
         [Test]
@@ -126,6 +129,8 @@ namespace SchedulerConsoleApp.UnitTests
             // and not t3, t2
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
+            Assert.IsTrue(waitForAllList[0].StartsWith("t3"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t2"));
         }
 
         [Test]
@@ -160,6 +165,8 @@ namespace SchedulerConsoleApp.UnitTests
             // should be in order "t1", "t3"
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
+            Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t3"));
         }
 
 
@@ -195,6 +202,8 @@ namespace SchedulerConsoleApp.UnitTests
             // should be in order "t1", "t2"
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
+            Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t2"));
         }
     }
 }
