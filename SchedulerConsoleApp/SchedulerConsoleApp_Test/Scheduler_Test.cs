@@ -8,6 +8,12 @@ namespace SchedulerConsoleApp.UnitTests
 {
     class Scheduler_Test
     {
+        [SetUp]
+        public void Setup()
+        {
+            OwnTask.AllLines.Clear();
+        }
+
         [Test]
         public void Test_0Task_01()
         {
@@ -69,6 +75,8 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[0].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
 
+            // executeBefore and executeAfter is only executed for "t2", because it is the last, 
+            // which calls syncTasks.WaitForAll
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeBefore")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeAfter")));
@@ -78,6 +86,11 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
+
+            // should be in order "t1", "t2", "t3"
+            // and not t1, t3, t2
+            List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
+            Assert.AreEqual(3, waitForAllList.Count);
         }
 
         [Test]
@@ -97,6 +110,8 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[0].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
 
+            // executeBefore and executeAfter is only executed for "t2", because it is the last, 
+            // which calls syncTasks.WaitForAll
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeBefore")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeAfter")));
@@ -106,6 +121,11 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
+
+            // should be in order "t2", "t3"
+            // and not t3, t2
+            List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
+            Assert.AreEqual(2, waitForAllList.Count);
         }
 
         [Test]
@@ -130,10 +150,16 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[1].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("finished")));
 
+            // executeBefore and executeAfter is only executed for "t3", because it is the last, 
+            // which calls syncTasks.WaitForAll (and "t2" never calls syncTasks.WaitForAll because it finished earlier)
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("executeBefore")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
+
+            // should be in order "t1", "t3"
+            List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
+            Assert.AreEqual(2, waitForAllList.Count);
         }
 
 
@@ -154,6 +180,8 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[0].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
 
+            // executeBefore and executeAfter is only executed for "t2", because it is the last, 
+            // which calls syncTasks.WaitForAll
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeBefore")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("executeAfter")));
@@ -163,6 +191,10 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
+
+            // should be in order "t1", "t2"
+            List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
+            Assert.AreEqual(2, waitForAllList.Count);
         }
     }
 }

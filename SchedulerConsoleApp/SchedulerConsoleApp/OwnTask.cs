@@ -11,6 +11,7 @@ namespace SchedulerConsoleApp
         private int loopCount1;
         private bool finishedEarly;
         public List<string> Lines { get; private set; } = new List<string>();
+        public static List<string> AllLines { get; private set; } = new List<string>();
 
         public OwnTask(string name, int loopCount1, bool finishedEarly)
         {
@@ -45,6 +46,7 @@ namespace SchedulerConsoleApp
         {
             Console.WriteLine(value);
             Lines.Add(value);
+            AllLines.Add(value);
         }
     }
 }

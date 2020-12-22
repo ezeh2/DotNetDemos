@@ -48,6 +48,16 @@ namespace SchedulerConsoleApp
             }
         }
 
+        /// <summary>
+        /// waits until all OwnTasks have called this method. Then following happens:
+        /// * executeOneTimeBefore is executed once
+        /// * action is executed for all OwnTask-objects, which have called WaitForAll
+        /// * executeOneTimeAfter is executed once
+        /// </summary>
+        /// <param name="ownTask"></param>
+        /// <param name="executeOneTimeBefore"></param>
+        /// <param name="action"></param>
+        /// <param name="executeOneTimeAfter"></param>
         public void WaitForAll(OwnTask ownTask, Action executeOneTimeBefore, Action<OwnTask> action, Action executeOneTimeAfter)
         {
             bool semaphoreWait = false;
