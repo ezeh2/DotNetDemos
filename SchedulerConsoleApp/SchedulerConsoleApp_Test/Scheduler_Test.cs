@@ -8,8 +8,43 @@ namespace SchedulerConsoleApp.UnitTests
     class Scheduler_Test
     {
         [Test]
+        public void Test_0Task_01()
+        {
+            List<OwnTask> ownTasks = new List<OwnTask>();
+
+            Scheduler scheduler = new Scheduler();
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                scheduler.ExecuteInParallel(ownTasks);
+            });
+        }
+
+        [Test]
+        [Timeout(6000)]
+        public void Test_1Task_01()
+        {
+            List<OwnTask> ownTasks = new List<OwnTask>();
+            ownTasks.Add(new OwnTask("t1", 5, false));
+
+            Scheduler scheduler = new Scheduler();
+            scheduler.ExecuteInParallel(ownTasks);
+        }
+
+        [Test]
+        [Timeout(6000)]
+        public void Test_1Task_02()
+        {
+            List<OwnTask> ownTasks = new List<OwnTask>();
+            ownTasks.Add(new OwnTask("t1", 5, true));
+
+            Scheduler scheduler = new Scheduler();
+            scheduler.ExecuteInParallel(ownTasks);
+        }
+
+        [Test]
         [Timeout(16000)]
-        public void Test1()
+        public void Test_3Tasks_01()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, false));
@@ -22,7 +57,7 @@ namespace SchedulerConsoleApp.UnitTests
 
         [Test]
         [Timeout(16000)]
-        public void Test2()
+        public void Test_3Tasks_02()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, true));
@@ -35,7 +70,7 @@ namespace SchedulerConsoleApp.UnitTests
 
         [Test]
         [Timeout(16000)]
-        public void Test3()
+        public void Test_3Tasks_03()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, false));
@@ -49,7 +84,7 @@ namespace SchedulerConsoleApp.UnitTests
 
         [Test]
         [Timeout(16000)]
-        public void Test4()
+        public void Test_3Tasks_04()
         {
             List<OwnTask> ownTasks = new List<OwnTask>();
             ownTasks.Add(new OwnTask("t1", 5, false));

@@ -14,6 +14,11 @@ namespace SchedulerConsoleApp
 
         public void NotifyBeforeParallelExecution(List<OwnTask> tasks)
         {
+            if (tasks.Count<=0)
+            {
+                throw new ArgumentException("tasks-list should have at least one entry");
+            }
+
             lock(this)
             {
                 ownTasks.AddRange(tasks);
@@ -23,7 +28,12 @@ namespace SchedulerConsoleApp
 
         public void NotifyAfterParallelExecution(List<OwnTask> tasks)
         {
-            lock(this)
+            if (tasks.Count <= 0)
+            {
+                throw new ArgumentException("tasks-list should have at least one entry");
+            }
+
+            lock (this)
             {
                 foreach (var task in tasks)
                 {
@@ -58,7 +68,7 @@ namespace SchedulerConsoleApp
 
         private void ExecuteWaitingActions()
         {
-            if (waitingActions.Count == ownTasks.Count)
+            if ( (waitingActions.Count>0) && (waitingActions.Count == ownTasks.Count) )
             {
                 for (int k = 0; k < waitingOwnTasks.Count; k++)
                 {
