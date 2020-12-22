@@ -10,6 +10,7 @@ namespace SchedulerConsoleApp
         private string name;
         private int loopCount1;
         private bool finishedEarly;
+        public List<string> Lines { get; private set; } = new List<string>();
 
         public OwnTask(string name, int loopCount1, bool finishedEarly)
         {
@@ -22,21 +23,27 @@ namespace SchedulerConsoleApp
         {
             for(int i=0;i< loopCount1;i++)
             {
-                Console.WriteLine($"{name}: line");
+                WriteLine($"{name}: line");
                 Thread.Sleep(1000);
             }
             if (finishedEarly)
             {
-                Console.WriteLine("finished early");
+                WriteLine("finished early");
                 return;
             }
 
             syncTasks.WaitForAll(this, (ownTask) =>
              {
-                 Console.WriteLine($"{ownTask.name}: WaitForAll done");
+                 WriteLine($"{ownTask.name}: WaitForAll done");
              });
 
-            Console.WriteLine("finished");
+            WriteLine("finished");
+        }
+
+        private void WriteLine(string value)
+        {
+            Console.WriteLine(value);
+            Lines.Add(value);
         }
     }
 }

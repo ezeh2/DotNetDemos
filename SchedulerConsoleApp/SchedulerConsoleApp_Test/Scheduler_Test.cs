@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SchedulerConsoleApp.UnitTests
 {
@@ -29,6 +30,9 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
         }
 
         [Test]
@@ -40,6 +44,9 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(0, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
         }
 
         [Test]
@@ -53,6 +60,13 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
         }
 
         [Test]
@@ -66,6 +80,13 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(0, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
         }
 
         [Test]
@@ -79,6 +100,13 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(0, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
         }
 
 
@@ -93,6 +121,13 @@ namespace SchedulerConsoleApp.UnitTests
 
             Scheduler scheduler = new Scheduler();
             scheduler.ExecuteInParallel(ownTasks);
+
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[0].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[1].Lines.Count(x => x.Contains("finished")));
+            Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("WaitForAll done")));
+            Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
         }
     }
 }
