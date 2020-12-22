@@ -5,14 +5,14 @@ using System.Threading;
 
 namespace SchedulerConsoleApp
 {
-    class SyncTasks
+    public class SyncTasks
     {
         private List<OwnTask> ownTasks = new List<OwnTask>();
         private List<OwnTask> waitingOwnTasks = new List<OwnTask>();
         private List<Action<OwnTask>> waitingActions = new List<Action<OwnTask>>();
         private Semaphore semaphore;
 
-        internal void NotifyBeforeParallelExecution(List<OwnTask> tasks)
+        public void NotifyBeforeParallelExecution(List<OwnTask> tasks)
         {
             lock(this)
             {
@@ -21,7 +21,7 @@ namespace SchedulerConsoleApp
             }
         }
 
-        internal void NotifyAfterParallelExecution(List<OwnTask> tasks)
+        public void NotifyAfterParallelExecution(List<OwnTask> tasks)
         {
             lock(this)
             {
@@ -35,7 +35,7 @@ namespace SchedulerConsoleApp
             }
         }
 
-        internal void WaitForAll(OwnTask ownTask, Action<OwnTask> action)
+        public void WaitForAll(OwnTask ownTask, Action<OwnTask> action)
         {
             bool semaphoreWait = false;
             lock(this)

@@ -5,13 +5,13 @@ using System.Threading;
 
 namespace SchedulerConsoleApp
 {
-    class OwnTask
+    public class OwnTask
     {
         private string name;
         private int loopCount1;
         private bool finishedEarly;
 
-        internal OwnTask(string name, int loopCount1, bool finishedEarly)
+        public OwnTask(string name, int loopCount1, bool finishedEarly)
         {
             this.name = name;
             this.loopCount1 = loopCount1;

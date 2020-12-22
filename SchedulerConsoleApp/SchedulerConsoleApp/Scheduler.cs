@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SchedulerConsoleApp
 {
-    class Scheduler
+    public class Scheduler
     {
         private SyncTasks syncTasks = new SyncTasks();
 
