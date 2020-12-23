@@ -85,9 +85,14 @@ namespace SchedulerConsoleApp
             if ( (waitingActions.Count>0) && (waitingActions.Count == ownTasks.Count) )
             {
                 this.executeOneTimeBefore();
-                for (int k = 0; k < waitingOwnTasks.Count; k++)
+                // execute in order of registration when called NotifyBeforeParallelExecution
+                for (int k = 0; k < ownTasks.Count; k++)
                 {
-                    waitingActions[k](waitingOwnTasks[k]);
+                    // for this OwnTask-object we want to execute waitingAction
+                    OwnTask ownTask = ownTasks[k];
+                    int indexOfOwnTask = waitingOwnTasks.IndexOf(ownTask);
+
+                    waitingActions[indexOfOwnTask](waitingOwnTasks[indexOfOwnTask]);
                 }
                 this.executeOneTimeAfter();
                 // release all

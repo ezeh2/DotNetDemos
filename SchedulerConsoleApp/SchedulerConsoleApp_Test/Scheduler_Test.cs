@@ -87,13 +87,13 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
 
-            // should be in order "t1", "t2", "t3"
+            // should be in order "t1", "t2", "t3", when calling ExecuteInParallel
             // and not t1, t3, t2
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(3, waitForAllList.Count);
             Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
-            Assert.IsTrue(waitForAllList[1].StartsWith("t3"));
-            Assert.IsTrue(waitForAllList[2].StartsWith("t2"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t2"));
+            Assert.IsTrue(waitForAllList[2].StartsWith("t3"));
         }
 
         [Test]
@@ -125,12 +125,12 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(0, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
 
-            // should be in order "t2", "t3"
+            // should be in order "t2", "t3", when calling ExecuteInParallel
             // and not t3, t2
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
-            Assert.IsTrue(waitForAllList[0].StartsWith("t3"));
-            Assert.IsTrue(waitForAllList[1].StartsWith("t2"));
+            Assert.IsTrue(waitForAllList[0].StartsWith("t2"));
+            Assert.IsTrue(waitForAllList[1].StartsWith("t3"));
         }
 
         [Test]
@@ -162,7 +162,7 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("executeAfter")));
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
 
-            // should be in order "t1", "t3"
+            // should be in order "t1", "t3", when calling ExecuteInParallel
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
             Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
