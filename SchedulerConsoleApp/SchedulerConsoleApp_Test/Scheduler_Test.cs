@@ -127,6 +127,7 @@ namespace SchedulerConsoleApp.UnitTests
 
             // should be in order "t2", "t3", when calling ExecuteInParallel
             // and not t3, t2
+            // for t1 WaitForAll is never called because it terminated earlier
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
             Assert.IsTrue(waitForAllList[0].StartsWith("t2"));
@@ -163,6 +164,7 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
 
             // should be in order "t1", "t3", when calling ExecuteInParallel
+            // for t2 WaitForAll is never called because it terminated earlier
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
             Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
@@ -200,6 +202,7 @@ namespace SchedulerConsoleApp.UnitTests
             Assert.AreEqual(1, ownTasks[2].Lines.Count(x => x.Contains("finished")));
 
             // should be in order "t1", "t2"
+            // for t3 WaitForAll is never called because it terminated earlier
             List<string> waitForAllList = OwnTask.AllLines.Where(it => it.Contains("WaitForAll done")).ToList();
             Assert.AreEqual(2, waitForAllList.Count);
             Assert.IsTrue(waitForAllList[0].StartsWith("t1"));
