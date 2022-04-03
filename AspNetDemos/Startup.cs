@@ -17,10 +17,19 @@ namespace AspNetDemos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDirectoryBrowser();
+
+            /*
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });            
+            */
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {            
+            // ### begin static files 
+            //  files come wwwroot
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-6.0
             var options = new DefaultFilesOptions();
             options.DefaultFileNames.Clear();
@@ -29,6 +38,28 @@ namespace AspNetDemos
             app.UseDirectoryBrowser();
 
             app.UseStaticFiles();
+            // ### end static files            
+
+            /*
+            app.UseSpaStaticFiles();
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    // spa.UseAngularCliServer(npmScript: "start");
+                }
+            });           
+            */ 
+
+            /*
+            StaticFileOptions options2 = new StaticFileOptions();
+            app.UseSpaStaticFiles(options2);
+            */
         }
 
         public void Configure1(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,7 +69,8 @@ namespace AspNetDemos
             app.Use(async (context, next) =>
             {
                 await context.Response.WriteAsync($"Getting Response from First Middleware {en}");
-                // await next();
+                // https://docs.microsoft.com/en-us/dotnet/core/compatibility/aspnet-core/6.0/middleware-new-use-overload
+                await next(context);
             });
             app.Run(async (context) =>
             {
