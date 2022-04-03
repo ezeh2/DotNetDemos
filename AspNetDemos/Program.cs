@@ -20,7 +20,10 @@ namespace AspNetDemos
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    // webBuilder.UseStartup<Startup>();
+                    // webBuilder.UseStartup<UseStaticFiles_Startup>();
+                    // webBuilder.UseStartup<UseSpaStaticFiles_Startup>();                    
+                    webBuilder.UseStartup<UseSpaStaticFiles_UseSpa_Startup>();
                 });
     }
 }

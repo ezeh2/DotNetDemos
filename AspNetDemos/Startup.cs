@@ -16,53 +16,10 @@ namespace AspNetDemos
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDirectoryBrowser();
-
-            /*
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });            
-            */
         }
 
+        /// Getting Response from First Middleware DevelopmentGetting Response from Second Middleware
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {            
-            // ### begin static files 
-            //  files come wwwroot
-            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-6.0
-            var options = new DefaultFilesOptions();
-            options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("test.txt");
-            app.UseDefaultFiles(options);
-            app.UseDirectoryBrowser();
-
-            app.UseStaticFiles();
-            // ### end static files            
-
-            /*
-            app.UseSpaStaticFiles();
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    // spa.UseAngularCliServer(npmScript: "start");
-                }
-            });           
-            */ 
-
-            /*
-            StaticFileOptions options2 = new StaticFileOptions();
-            app.UseSpaStaticFiles(options2);
-            */
-        }
-
-        public void Configure1(IApplicationBuilder app, IWebHostEnvironment env)
         {
             string en = env.EnvironmentName;
 
